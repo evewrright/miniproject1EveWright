@@ -56,14 +56,17 @@ def graphClose(closeArray):
 
     plt.show()
 
+
 # Create charts folder
 try:
     Path("charts").mkdir()
 except FileExistsError:
     pass
 
+# List of 5 stock tickers
 tickers = ['EL', 'IPAR', 'PG', 'LRLCY', 'GPS']
 
+# Main code, runs both functions
 for ticker in tickers:
     graphClose(getClose(ticker))
 
