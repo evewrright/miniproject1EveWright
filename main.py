@@ -6,6 +6,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import yfinance as yf
+from pathlib import Path
 
 
 # (5/5 points) Initial comments with your name, class and project at the top of your .py file.
@@ -54,6 +55,12 @@ def graphClose(closeArray):
     plt.savefig(savefile)
 
     plt.show()
+
+# Create charts folder
+try:
+    Path("charts").mkdir()
+except FileExistsError:
+    pass
 
 tickers = ['EL', 'IPAR', 'PG', 'LRLCY', 'GPS']
 
