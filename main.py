@@ -24,11 +24,26 @@ import yfinance as yf
 # (20/20 points) There should be a README.md file in your project that explains what your project is, how to install the
 #                pip requirements, and how to execute the program. Please use the GitHub flavor of Markdown.
 
+def getClose(ticker):
+    stock = yf.Ticker(ticker)
+    history = stock.history(period='10d')
+    closeList = []
+
+    for price in history['Close']:
+        closeList.append(price)
+
+    closeArray = np.array(closeList)
+    print(closeArray)
+
 tickers = ['EL']
 
+getClose(tickers[0])
+
+#tickers = np.array(tickers)
+'''
 for ticker in tickers:
     myticker = yf.Ticker(ticker)
-    myhistory = myticker.history(start='2024-01-31', end='2024-02-09')
-    myclose = myhistory['Close'][ticker]
-    
+    history = myticker.history(period='10d')
+    print(history)
+'''
 
