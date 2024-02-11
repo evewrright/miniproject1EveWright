@@ -37,7 +37,9 @@ def getClose(ticker):
     return closeArray
 
 def graphClose(closeArray):
-    plt.plot(closeArray)
+    days = list(range(1, len(closeArray) + 1))
+    plt.plot(days, closeArray)
+    plt.xticks(np.arange(min(days), max(days)+1, 1))
     plt.xlabel('Trading Days')
     plt.ylabel('Closing Price')
     plt.suptitle(str(ticker))
@@ -50,10 +52,5 @@ for ticker in tickers:
     graphClose(getClose(ticker))
 
 #tickers = np.array(tickers)
-'''
-for ticker in tickers:
-    myticker = yf.Ticker(ticker)
-    history = myticker.history(period='10d')
-    print(history)
-'''
+
 
