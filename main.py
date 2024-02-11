@@ -33,11 +33,21 @@ def getClose(ticker):
         closeList.append(price)
 
     closeArray = np.array(closeList)
-    print(closeArray)
 
-tickers = ['EL']
+    return closeArray
 
-getClose(tickers[0])
+def graphClose(closeArray):
+    plt.plot(closeArray)
+    plt.xlabel('Trading Days')
+    plt.ylabel('Closing Price')
+    plt.suptitle(str(ticker))
+    plt.title('Closing Price in last 10 Trading Days')
+    plt.show()
+
+tickers = ['EL', 'IPAR']
+
+for ticker in tickers:
+    graphClose(getClose(ticker))
 
 #tickers = np.array(tickers)
 '''
