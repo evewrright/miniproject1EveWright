@@ -48,13 +48,18 @@ def graphClose(closeArray):
     plt.ylabel('Closing Price')
     plt.suptitle(str(ticker))
     plt.title('Closing Price in last 10 Trading Days')
+
+    # Save graph as png in charts
+    savefile = 'charts/' + ticker + '.png'
+    plt.savefig(savefile)
+
     plt.show()
 
-tickers = ['EL', 'IPAR']
+tickers = ['EL', 'IPAR', 'PG', 'LRLCY', 'GPS']
 
 for ticker in tickers:
     graphClose(getClose(ticker))
 
-#tickers = np.array(tickers)
+
 
 
