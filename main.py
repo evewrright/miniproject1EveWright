@@ -38,9 +38,13 @@ def getClose(ticker):
 
 def graphClose(closeArray):
     days = list(range(1, len(closeArray) + 1))
-    plt.plot(days, closeArray)
+    plt.plot(days, closeArray, 'b-o')
+    # Change x-axis step to 1
     plt.xticks(np.arange(min(days), max(days)+1, 1))
-    plt.xlabel('Trading Days')
+    plt.xlim(max(days) + .25, min(days) - .25)
+
+    # Create all labels
+    plt.xlabel('Trading Days (Ago)')
     plt.ylabel('Closing Price')
     plt.suptitle(str(ticker))
     plt.title('Closing Price in last 10 Trading Days')
